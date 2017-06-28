@@ -1,0 +1,3 @@
+[submodule "ConEmu/themes"]
+	path = ConEmu/themes
+	url = git@github.com:joonro/ConEmu-Color-Themes.git
