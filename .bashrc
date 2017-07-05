@@ -59,7 +59,6 @@ fi
 if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     PS1="\[\033[38;5;45m\]\u\[$(tput sgr0)\]\[\033[38;5;11m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;45m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\$ \[$(tput sgr0)\]"
-    #PS1="\[\e]0;\u@\h: \w\a\]\[\033[38;5;45m\]\u\[\]\[\033[38;5;15m\]@\[\]\[\033[38;5;85m\]\h\[\]\[\033[38;5;15m\]:\[\]\[\033[38;5;6m\]\w\[\]\[\033[38;5;51m\]\$\[\]\[\033[38;5;15m\] \[\]"
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -115,8 +114,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export NVM_DIR="~/.nvm"
+export NVM_DIR="/home/dylan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+PATH="$PATH:~/.local/bin/:/home/dylan/gocode/bin:~/git-toolbelt"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completio
 
-PATH="$PATH:~/.local/bin/:~/gocode/bin:~/git-toolbelt"
+eval "$(direnv hook bash)" && direnv allow
+cmd.exe /c 'tasklist /FI "IMAGENAME eq vcxsrv.exe" 2>NUL | find /I /N "vcxsrv.exe">NUL'
+if [[ $? -ne 0 && -f "/mnt/c/Program Files/VcXsrv/xlaunch.exe" ]]; then
+	echo "X11 Server not found. Starting VcXsrv now..."
+	cmd /c "C:\Program Files\VcXsrv\vcxsrv.exe -multiwindow"
+fi
+export DISPLAY=:0.0
+cat /etc/motd

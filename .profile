@@ -23,6 +23,7 @@ fi
 
 export NVM_DIR="/home/dylan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-if [ $(pwd | tail -c 9) == "GitPrime" ]; then
-	eval "$(direnv hook bash)" && direnv allow
-fi
+#if [ $(pwd | tail -c 9) == "GitPrime" ]; then
+#eval "$(direnv hook bash)" && direnv allow
+#fi
+
