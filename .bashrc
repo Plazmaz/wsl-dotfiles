@@ -58,7 +58,15 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1="\[\033[38;5;45m\]\u\[$(tput sgr0)\]\[\033[38;5;11m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;45m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\$ \[$(tput sgr0)\]"
+    #PS1="\[\033[38;5;45m\]\u\[$(tput sgr0)\]\[\033[38;5;11m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;45m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\$ \[$(tput sgr0)\]"
+	function parse_git_branch () {
+	  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+	}
+	LIGHT="\[\033[38;5;68m\]"
+	DARK="\[\033[38;5;39m\]"
+	YELLOW="\[\033[1;33m\]"
+	NO_COLOR="\[\033[0m\]"
+	PS1="$LIGHTλ $DARK\w$YELLOW\$(parse_git_branch)$NO_COLOR "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -123,7 +131,7 @@ eval "$(direnv hook bash)" && direnv allow
 cmd.exe /c 'tasklist /FI "IMAGENAME eq vcxsrv.exe" 2>NUL | find /I /N "vcxsrv.exe">NUL'
 if [[ $? -ne 0 && -f "/mnt/c/Program Files/VcXsrv/xlaunch.exe" ]]; then
 	echo "X11 Server not found. Starting VcXsrv now..."
-	cmd /c "C:\Program Files\VcXsrv\vcxsrv.exe -multiwindow"
+	cmd.exe /c "\"C:\Program Files\VcXsrv\vcxsrv.exe\" -multiwindow" &
 fi
-export DISPLAY=:0.0
+export DISPLAY=:0
 cat /etc/motd

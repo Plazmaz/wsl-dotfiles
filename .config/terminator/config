@@ -6,112 +6,58 @@
 [layouts]
   [[default]]
     [[[child0]]]
-      fullscreen = True
-      last_active_term = 4dd407dd-8308-4cac-b69e-101b798760da
+      fullscreen = False
+      last_active_term = 239bbbdb-5fdb-48f9-af5e-e4f9c42833e2
       last_active_window = True
       maximised = False
       order = 0
       parent = ""
       position = 8:28
-      size = 1856, 900
+      size = 1920, 900
       title = dylan@LAPTOP-UQCUF24U: ~
       type = Window
     [[[child1]]]
       order = 0
       parent = child0
-      position = 925
-      ratio = 0.499730603448
+      position = 932
+      ratio = 0.48671875
       type = HPaned
-    [[[child3]]]
-      order = 1
+    [[[child2]]]
+      order = 0
       parent = child1
-      position = 605
-      ratio = 0.675
+      position = 615
+      ratio = 0.686111111111
       type = VPaned
-    [[[child4]]]
+    [[[child3]]]
+      order = 0
+      parent = child2
+      position = 314
+      ratio = 0.514634146341
+      type = VPaned
+    [[[terminal4]]]
       order = 0
       parent = child3
-      position = 304
-      ratio = 0.506611570248
-      type = VPaned
-    [[[terminal2]]]
-      order = 0
-      parent = child1
-      profile = default
-      type = Terminal
-      uuid = 4dd407dd-8308-4cac-b69e-101b798760da
-    [[[terminal5]]]
-      order = 0
-      parent = child4
       profile = default
       type = Terminal
       uuid = 239bbbdb-5fdb-48f9-af5e-e4f9c42833e2
-    [[[terminal6]]]
-      order = 1
-      parent = child4
-      profile = default
-      type = Terminal
-      uuid = b897a75b-3d8e-4cc7-a841-b5f12e466cc4
-    [[[terminal7]]]
+    [[[terminal5]]]
       order = 1
       parent = child3
       profile = default
       type = Terminal
       uuid = 760ccfc6-2a69-459e-814d-0b078d8bf7ac
-  [[GitPrime]]
-    [[[child0]]]
-      fullscreen = True
-      last_active_term = 4dd407dd-8308-4cac-b69e-101b798760da
-      last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 8:28
-      size = 1856, 900
-      title = dylan@LAPTOP-UQCUF24U: ~
-      type = Window
-    [[[child1]]]
-      order = 0
-      parent = child0
-      position = 925
-      ratio = 0.499730603448
-      type = HPaned
-    [[[child3]]]
-      order = 1
-      parent = child1
-      position = 605
-      ratio = 0.675
-      type = VPaned
-    [[[child4]]]
-      order = 0
-      parent = child3
-      position = 304
-      ratio = 0.506611570248
-      type = VPaned
-    [[[terminal2]]]
-      order = 0
-      parent = child1
-      profile = default
-      type = Terminal
-      uuid = 4dd407dd-8308-4cac-b69e-101b798760da
-    [[[terminal5]]]
-      order = 0
-      parent = child4
-      profile = default
-      type = Terminal
-      uuid = 239bbbdb-5fdb-48f9-af5e-e4f9c42833e2
     [[[terminal6]]]
       order = 1
-      parent = child4
+      parent = child2
       profile = default
       type = Terminal
       uuid = b897a75b-3d8e-4cc7-a841-b5f12e466cc4
     [[[terminal7]]]
       order = 1
-      parent = child3
+      parent = child1
       profile = default
       type = Terminal
-      uuid = 760ccfc6-2a69-459e-814d-0b078d8bf7ac
+      uuid = 4dd407dd-8308-4cac-b69e-101b798760da
   [[default-old]]
     [[[child0]]]
       fullscreen = True
@@ -133,7 +79,9 @@
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 0.25
-    background_image = None
-    background_type = transparent
+    background_darkness = 0.4
+    background_image = /home/dylan/background.png
+    background_type = image
+    font = Monospace 8
     foreground_color = "#ffffff"
+    show_titlebar = False
