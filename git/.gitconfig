@@ -1,0 +1,13 @@
+[user]
+	name = Dylan Katz
+	email = git@dylankatz.com
+[user]
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	autocrlf = false
+	excludesfile = ~/gitignore_global.txt
+
