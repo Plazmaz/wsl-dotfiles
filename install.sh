@@ -44,5 +44,5 @@ ln -sv "/home/$USER/wsl-dotfiles/.profile" ~
 ln -sv "/home/$USER/wsl-dotfiles/.bashrc" ~
 ln -sv "/home/$USER/wsl-dotfiles/git/.gitconfig" ~
 ln -sv "/home/$USER/wsl-dotfiles/.bash_aliases" ~
-ln -sv /home/$USER/wsl-dotfiles/.config/* ~
+cp -rs "/home/$USER/wsl-dotfiles/.config" ~/.config
 echo "Finished!"
