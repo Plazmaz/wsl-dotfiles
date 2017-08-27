@@ -1,4 +1,8 @@
 #!/bin/bash
+echo "Installing dependencies..."
+sudo apt-get install fish git
+
+curl -L "https://get.oh-my.fish" | fish
 
 echo "Linking shortcuts..."
 ln -sv "/mnt/c/Users/$USER/Documents" ~
