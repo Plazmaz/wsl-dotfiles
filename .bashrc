@@ -127,11 +127,11 @@ export NVM_DIR="/home/dylan/.nvm"
 PATH="$PATH:~/.local/bin/:/home/dylan/gocode/bin:~/git-toolbelt"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completio
 
-eval "$(direnv hook bash)" && direnv allow
+eval "$(direnv hook bash)" && eval "$(direnv hook fish)" && direnv allow
 cmd.exe /c 'tasklist /FI "IMAGENAME eq vcxsrv.exe" 2>NUL | find /I /N "vcxsrv.exe">NUL'
 if [[ $? -ne 0 && -f "/mnt/c/Program Files/VcXsrv/xlaunch.exe" ]]; then
 	echo "X11 Server not found. Starting VcXsrv now..."
-	cmd.exe /c "\"C:\Program Files\VcXsrv\vcxsrv.exe\" -multiwindow" &
+	cmd.exe /c "\"C:\Program Files\VcXsrv\vcxsrv.exe\" -multiwindow" &>/dev/null
 fi
 export DISPLAY=:0
-cat /etc/motd
+xfce4-session 2>/dev/null &

@@ -1,8 +1,11 @@
 #!/bin/bash
 echo "Installing dependencies..."
-sudo apt-get install fish git
+sudo apt-get install -y fish git terminator xfce4
+script=$(curl -L "https://get.oh-my.fish")
+fish -c "set -g ASSUME_YES; $script" 
 
-curl -L "https://get.oh-my.fish" | fish
+echo "Switching default shell..."
+chsh -s `which fish`
 
 echo "Linking shortcuts..."
 ln -sv "/mnt/c/Users/$USER/Documents" ~
