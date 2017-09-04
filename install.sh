@@ -1,10 +1,14 @@
 #!/bin/bash
 echo "Installing dependencies..."
-sudo apt-get install fish git
+sudo apt-get install -y fish git terminator xfce4
+script=$(curl -L "https://get.oh-my.fish")
+fish -c "set -g ASSUME_YES; $script" 
 
 function windir() {
     echo $1 | sed -E 's+^/mnt/(.{1})+\1:+' | sed 's+:$+:/+1' 
 }
+echo "\e[93m>>>\e[0m Switching default shell..."
+chsh -s `which fish`
 
 echo -e "\e[93m>>>\e[0m Installing fonts (This will take a while)..."
 git clone https://github.com/powerline/fonts.git --depth=1
