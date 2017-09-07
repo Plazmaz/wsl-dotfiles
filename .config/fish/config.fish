@@ -14,4 +14,14 @@ if test $status -ne 0; and test -e "/mnt/c/Program Files/VcXsrv/xlaunch.exe"
 	echo "X11 Server not found. Starting VcXsrv now..."
 	cmd.exe /c "\"C:\Program Files\VcXsrv\vcxsrv.exe\" -multiwindow" &
 end
-set -g DISPLAY 0
+set -x DISPLAY :0
+
+export NVM_DIR="~/.nvm"
+if test -e "$NVM_DIR/nvm.sh":
+  . "$NVM_DIR/nvm.sh" # This loads nvm 
+end
+set PATH $PATH ~/.local/bin/ ~/gocode/bin ~/git-toolbelt
+# PATH="$PATH:~/.local/bin/:/home/dylan/gocode/bin:~/git-toolbelt"
+if test -e "$NVM_DIR/bash_completion":
+	\. "$NVM_DIR/bash_completion"  # This loads nvm bash_completio
+end
