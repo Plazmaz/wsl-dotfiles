@@ -69,5 +69,10 @@ ln -sv "/home/$USER/wsl-dotfiles/.profile" ~
 ln -sv "/home/$USER/wsl-dotfiles/.bashrc" ~
 ln -sv "/home/$USER/wsl-dotfiles/git/.gitconfig" ~
 ln -sv "/home/$USER/wsl-dotfiles/.bash_aliases" ~
+<<<<<<< Updated upstream
 cp -rs "/home/$USER/wsl-dotfiles/.config" ~/.config
 echo -e "\e[93m>>>\e[0m Finished!"
+=======
+cp -rs "/home/$USER/wsl-dotfiles/.config" ~
+echo "Finished!"
+>>>>>>> Stashed changes
