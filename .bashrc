@@ -134,4 +134,4 @@ if [[ $? -ne 0 && -f "/mnt/c/Program Files/VcXsrv/xlaunch.exe" ]]; then
 	cmd.exe /c "\"C:\Program Files\VcXsrv\vcxsrv.exe\" -multiwindow" &>/dev/null
 fi
 export DISPLAY=:0
-xfce4-session 2>/dev/null &
+xfsettingsd 2>/dev/null &
