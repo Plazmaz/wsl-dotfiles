@@ -8,7 +8,7 @@ if ! [ -x "$(command -v fish)" ]; then
     echo -e "\e[93m>>>\e[0m Installing oh-my-fish if not installed..."
 fi
 
-if [[ ! -f "~/.local/share/omf/" ]]; then
+if [[ ! -d ~/.local/share/omf/ ]]; then
     script=$(curl -L "https://get.oh-my.fish")
     fish -c "set -g ASSUME_YES; $script; exit"
 fi
