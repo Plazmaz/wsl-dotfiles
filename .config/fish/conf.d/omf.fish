@@ -1,5 +1,5 @@
 # Change this if you need to change the vcxsrv install location
-set -g XSRV_DIR /mnt/h/Program Files/VcXsrv/
+set -g XSRV_DIR "/mnt/h/Program Files/VcXsrv"
 
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
@@ -20,11 +20,11 @@ set -g tasks (tasklist.exe /FI "IMAGENAME eq vcxsrv.exe" 2>NUL)
 echo $tasks | findstr.exe /I /N "vcxsrv.exe">NUL
 if test $status -ne 0; and test -e "$XSRV_DIR/xlaunch.exe"
 	echo "X11 Server not found. Starting VcXsrv now..."
-	"$XSRV_DIR/vcxsrv.exe" -multiwindow" &
+	eval "'$XSRV_DIR/vcxsrv.exe' -multiwindow 2>/dev/null &"
 end
 set -x DISPLAY :0
 
-export NVM_DIR="~/.nvm"
+set -x NVM_DIR "~/.nvm"
 if test -e "$NVM_DIR/nvm.sh":
   bash -c "$NVM_DIR/nvm.sh" # This loads nvm 
 end
