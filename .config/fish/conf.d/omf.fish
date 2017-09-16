@@ -26,10 +26,9 @@ set -x DISPLAY :0
 
 export NVM_DIR="~/.nvm"
 if test -e "$NVM_DIR/nvm.sh":
-  . "$NVM_DIR/nvm.sh" # This loads nvm 
+  bash -c "$NVM_DIR/nvm.sh" # This loads nvm 
 end
 set PATH $PATH ~/.local/bin/ ~/gocode/bin ~/git-toolbelt
-# PATH="$PATH:~/.local/bin/:/home/dylan/gocode/bin:~/git-toolbelt"
 if test -e "$NVM_DIR/bash_completion":
-	bash -c "$NVM_DIR/bash_completion"  # This loads nvm bash_completio
+	bash -c "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 end
