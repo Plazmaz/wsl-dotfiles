@@ -81,5 +81,5 @@ ln -sv "/home/$USER/wsl-dotfiles/.bashrc" ~
 ln -sv "/home/$USER/wsl-dotfiles/git/.gitconfig" ~
 ln -sv "/home/$USER/wsl-dotfiles/.bash_aliases" ~
 
-cp -rs "/home/$USER/wsl-dotfiles/.config" ~/.config
+cp -rs "/home/$USER/wsl-dotfiles/.config" ~/
 echo -e "\e[93m>>>\e[0m Finished!"
