@@ -31,5 +31,5 @@ end
 set PATH $PATH ~/.local/bin/ ~/gocode/bin ~/git-toolbelt
 # PATH="$PATH:~/.local/bin/:/home/dylan/gocode/bin:~/git-toolbelt"
 if test -e "$NVM_DIR/bash_completion":
-	\. "$NVM_DIR/bash_completion"  # This loads nvm bash_completio
+	bash -c "$NVM_DIR/bash_completion"  # This loads nvm bash_completio
 end
