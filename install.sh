@@ -4,14 +4,15 @@ sudo add-apt-repository ppa:fish-shell/beta-2
 sudo apt-get update
 sudo apt-get install -y fish git terminator xfce4
 
-if [ ! -x "$(fish -c 'echo 1; exit')"]:
-    echo "\e[93m>>>\e[0m Installing oh-my-fish if not installed..."
+if [[ ! -x "$(fish -c 'echo 1; exit')" ]]; then
+    echo -e "\e[93m>>>\e[0m Installing oh-my-fish if not installed..."
     if [[ -f "~/.local/share/omf/" ]]; then
         script=$(curl -L "https://get.oh-my.fish")
     fi
     fish -c "set -g ASSUME_YES; $script; exit" 
-    echo "\e[93m>>>\e[0m Switching default shell..."
+    echo -e "\e[93m>>>\e[0m Switching default shell..."
     chsh -s `which fish`
+fi
 
 function windir() {
     echo $1 | sed -E 's+^/mnt/(.{1})+\1:+' | sed 's+:$+:/+1' 
@@ -19,13 +20,13 @@ function windir() {
 
 echo -e "\e[93m>>>\e[0m Installing fonts (This will take a while)..."
 git clone https://github.com/powerline/fonts.git --depth=1
-powershell.exe -executionpolicy bypass -File install.ps1fi
+powershell.exe -executionpolicy bypass -File install.ps1
 
 echo -e "\e[93m>>>\e[0m Installing themes..."
 fish -c "omf install bobthefish; omf theme bobthefish; exit"
 
 echo -e "\e[93m>>>\e[0m Linking shortcuts..."
-$MY_DOCUMENTS = windir($(powershell.exe /c "[Environment]::GetFolderPath('MyDocuments')"))
+$MY_DOCUMENTS = windir $(powershell.exe /c "[Environment]::GetFolderPath('MyDocuments')")
 ln -sv "$MY_DOCUMENTS" ~
 ln -sv "/mnt/c/Users/$USER/Desktop" ~
 #ln -sv "/mnt/c/Users/$USER/Pictures" ~
@@ -53,14 +54,15 @@ if [[ ! -d ~/wsl-dotfiles ]]; then
    mkdir ~/wsl-dotfiles
    cp -a . ~/wsl-dotfiles
 
-else   
+else
    cd ~/wsl-dotfiles
    echo -e "\e[93m>>>\e[0m Existing installation found. Using that..."
 fi
 
 echo -e "\e[93m>>>\e[0m Updating..."
-git reset --soft origin/master
+git stash
 git pull
+git stash pop
 
 echo -e "\e[93m>>>\e[0m Cleaning unused files..."
 rm -f ~/.profile ~/.bashrc ~/.gitconfig ~/.bash_aliases
