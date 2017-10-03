@@ -16,8 +16,8 @@ eval (direnv hook fish)
 direnv allow
 
 # Check if vcxsrv is running
-set -g tasks (tasklist.exe /FI "IMAGENAME eq vcxsrv.exe" 2>NUL)
-echo $tasks | findstr.exe /I /N "vcxsrv.exe">NUL
+set -g tasks (tasklist.exe /FI "IMAGENAME eq vcxsrv.exe" 2>/dev/null)
+echo $tasks | findstr.exe /I /N "vcxsrv.exe">/dev/null
 if test $status -ne 0; and test -e "$XSRV_DIR/xlaunch.exe"
 	echo "X11 Server not found. Starting VcXsrv now..."
 	eval "'$XSRV_DIR/vcxsrv.exe' -multiwindow 2>/dev/null &"
