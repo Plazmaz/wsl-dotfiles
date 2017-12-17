@@ -122,9 +122,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export NVM_DIR="/home/dylan/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-PATH="$PATH:~/.local/bin/:/home/dylan/gocode/bin:~/git-toolbelt"
+PATH="$PATH:~/.local/bin/:$HOME/gocode/bin:~/git-toolbelt"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completio
 
 eval "$(direnv hook bash)" && eval "$(direnv hook fish)" && direnv allow
