@@ -1,6 +1,6 @@
 [user]
-	name = Dylan Katz
-	email = git@dylankatz.com
+	name = Eddie Wang
+	email = eddiew@cs.stanford.edu
 [user]
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -11,3 +11,5 @@
 	autocrlf = false
 	excludesfile = ~/gitignore_global.txt
 
+[credential]
+	helper = cache
