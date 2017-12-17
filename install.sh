@@ -47,7 +47,7 @@ ln -sv "windir/Users/$USER" ~
 ln -sv "windir/Users/$USER/Dropbox" ~
 
 echo -e "\e[93m>>>\e[0m Checking for old backup files..."
-if [[ ! -f ~/.bash_aliases_old && ! -f ~/.profile_old  && ! -f ~/.bashrc_old && ! -f ~/.gitconfig_old && ! -f ~/.inputrc_old ]]]; then
+if [[ ! -f ~/.bash_aliases_old && ! -f ~/.profile_old  && ! -f ~/.bashrc_old && ! -f ~/.gitconfig_old && ! -f ~/.inputrc_old ]]; then
    echo "None found. Backing up existing files..."
    if [[ -f ~/.bash_aliases ]]; then
       cp ~/.bash_aliases ~/.bash_aliases_old
