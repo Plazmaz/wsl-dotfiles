@@ -1,7 +1,7 @@
 # wsl-dotfiles
 ![A screenshot](https://i.imgur.com/kEzmGzV.png)
 My dotfiles for Bash on Windows/Windows Subsytem for Linux
-There are likely other projects with similar elements, but these are likely the most full-featured dotfiles for the windows subsystem for linux.
+Forked from Dylan Katz's repo of the same name. I've made some bug fixes and added some setup.
 
 # The Stack
 The shell consists of four layers:
