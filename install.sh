@@ -9,8 +9,7 @@ if ! [ -x "$(command -v fish)" ]; then
 fi
 
 if [[ ! -d ~/.local/share/omf/ ]]; then
-    script=$(curl -L "https://get.oh-my.fish")
-    fish -c "set -g ASSUME_YES; $script; exit"
+    curl -L "https://get.oh-my.fish" | fish
 fi
 echo -e "\e[93m>>>\e[0m Installing themes..."
 fish -c "omf install bobthefish; omf theme bobthefish; exit"
@@ -42,9 +41,9 @@ echo -e "\e[93m>>>\e[0m Linking shortcuts..."
 #ln -sv "/mnt/c/Users/$USER/Pictures" ~
 #ln -sv "/mnt/c/Users/$USER/Videos" ~
 #ln -sv "/mnt/c/Users/$USER/Music" ~
-ln -sv "windir" ~
-ln -sv "windir/Users/$USER" ~
-ln -sv "windir/Users/$USER/Dropbox" ~
+ln -sv "$(windir)c" ~
+ln -sv "$(windir)c/Users/Eddie" ~
+ln -sv "$(windir)c/Users/Eddie/Dropbox" ~
 
 echo -e "\e[93m>>>\e[0m Checking for old backup files..."
 if [[ ! -f ~/.bash_aliases_old && ! -f ~/.profile_old  && ! -f ~/.bashrc_old && ! -f ~/.gitconfig_old && ! -f ~/.inputrc_old ]]; then
