@@ -27,3 +27,6 @@ export NVM_DIR="$HOME/.nvm"
 #eval "$(direnv hook bash)" && direnv allow
 #fi
 
+# X forwarding to vcxsrv on windows
+export DISPLAY=localhost:0.0
+

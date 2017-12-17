@@ -35,19 +35,25 @@ fi
 #fish -c "omf install bobthefish; omf theme bobthefish; exit"
 
 echo -e "\e[93m>>>\e[0m Linking shortcuts..."
-MY_DOCUMENTS=$(windir `powershell.exe -c "Write-Host ([Environment]::GetFolderPath('MyDocuments')) -NoNewLine"`)
-DESKTOP=$(windir `powershell.exe -c "Write-Host ([Environment]::GetFolderPath('Desktop')) -NoNewLine"`)
-ln -sv "$MY_DOCUMENTS" ~
-ln -sv "$DESKTOP" ~
+# MY_DOCUMENTS=$(windir `powershell.exe -c "Write-Host ([Environment]::GetFolderPath('MyDocuments')) -NoNewLine"`)
+# DESKTOP=$(windir `powershell.exe -c "Write-Host ([Environment]::GetFolderPath('Desktop')) -NoNewLine"`)
+# ln -sv "$MY_DOCUMENTS" ~
+# ln -sv "$DESKTOP" ~
 #ln -sv "/mnt/c/Users/$USER/Pictures" ~
 #ln -sv "/mnt/c/Users/$USER/Videos" ~
 #ln -sv "/mnt/c/Users/$USER/Music" ~
+ln -sv "windir" ~
+ln -sv "windir/Users/$USER" ~
+ln -sv "windir/Users/$USER/Dropbox" ~
 
 echo -e "\e[93m>>>\e[0m Checking for old backup files..."
-if [[ ! -f ~/.bash_aliases_old && ! -f ~/.profile_old  && ! -f ~/.bashrc_old && ! -f ~/.gitconfig_old ]]; then
+if [[ ! -f ~/.bash_aliases_old && ! -f ~/.profile_old  && ! -f ~/.bashrc_old && ! -f ~/.gitconfig_old && ! -f ~/.inputrc_old ]]]; then
    echo "None found. Backing up existing files..."
    if [[ -f ~/.bash_aliases ]]; then
       cp ~/.bash_aliases ~/.bash_aliases_old
+   fi
+   if [[ -f ~/.inputrc ]]; then
+      cp ~/.inputrc ~/.inputrc_old
    fi
    cp ~/.profile ~/.profile_old
    cp ~/.bashrc ~/.bashrc_old
@@ -56,7 +62,6 @@ else
    echo -e "\e[93m>>>\e[0m Found existing backups. Will not overwrite them..."
 fi
 
-LOC="$PWD"
 echo -e "\e[93m>>>\e[0m Checking for updates..."
 git pull
 
@@ -75,12 +80,13 @@ git pull
 git stash pop
 
 echo -e "\e[93m>>>\e[0m Cleaning unused files..."
-rm -f ~/.profile ~/.bashrc ~/.gitconfig ~/.bash_aliases
+rm -f ~/.profile ~/.bashrc ~/.gitconfig ~/.bash_aliases ~/.inputrc
 echo -e "\e[93m>>>\e[0m Linking new files..."
-ln -sv "/home/$USER/wsl-dotfiles/.profile" ~
-ln -sv "/home/$USER/wsl-dotfiles/.bashrc" ~
-ln -sv "/home/$USER/wsl-dotfiles/git/.gitconfig" ~
-ln -sv "/home/$USER/wsl-dotfiles/.bash_aliases" ~
+ln -sv "$PWD/.profile" ~
+ln -sv "$PWD/.bashrc" ~
+ln -sv "$PWD/.inputrc" ~
+ln -sv "$PWD/git/.gitconfig" ~
+ln -sv "$PWD/.bash_aliases" ~
 
-cp -rs "/home/$USER/wsl-dotfiles/.config" ~/
+cp -rs "$PWD/.config" ~/
 echo -e "\e[93m>>>\e[0m Finished!"
