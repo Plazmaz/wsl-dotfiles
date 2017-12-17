@@ -12,4 +12,4 @@
 	excludesfile = ~/gitignore_global.txt
 
 [credential]
-	helper = cache
+	helper = cache --timeout=3600
