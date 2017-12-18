@@ -133,5 +133,4 @@ PATH="$PATH:~/.local/bin/:$HOME/gocode/bin:~/git-toolbelt"
 # 	echo "X11 Server not found. Starting VcXsrv now..."
 #  	cmd.exe /c "\"C:\Program Files\VcXsrv\vcxsrv.exe\" -multiwindow" &>/dev/null
 # fi
-export DISPLAY=:0
-xfsettingsd 2>/dev/null &
+

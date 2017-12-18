@@ -28,5 +28,5 @@ export NVM_DIR="$HOME/.nvm"
 #fi
 
 # X forwarding to vcxsrv on windows
-export DISPLAY=localhost:0.0
+export DISPLAY=:0
 
