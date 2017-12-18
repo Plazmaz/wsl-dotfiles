@@ -1,95 +1,37 @@
-# netj's READLINE configuration
-# Author: Jaeho Shin <netj@sparcs.org>
-# Overhauled: 2013-01-13
+$include /etc/inputrc
 
-# enhanced options
-set completion-ignore-case On
-set completion-map-case On
-set visible-stats On
-set colored-stats On
-set mark-symlinked-directories On
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+"\e[3~": delete-char
+"\e[2~": quoted-insert
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word
 
-#set mark-modified-lines On
-set skip-completed-text On
+set completion-ignore-case on
+set completion-map-case on
+set expand-tilde on
+set convert-meta off
+set input-meta on
+set output-meta on
+set show-all-if-ambiguous on
+set visible-stats on
+set history-preserve-point on
+set echo-control-characters off
+set mark-directories on
+set mark-symlinked-directories on
+set menu-complete-display-prefix on
+set page-completions off
+set skip-completed-text on
 
-# Vim-like menu-complete (set wildmode=list:full wildchar=<Tab>)
-set show-all-if-ambiguous On
-set show-all-if-unmodified Off
-set menu-complete-display-prefix Off
-Tab:      menu-complete
-set completion-query-items -1  # without disabling this, menu-complete may not work when there are too many possible completions
-#  a la <S-Tab>, <C-L> and <C-D>
-# XXX menu-complete-backward is available for bash >= 4
-#"\e[Z":   menu-complete-backward
-#     So here's a workaround, see: http://brettterpstra.com/2011/09/25/quick-tip-some-inputrc-fun/
-"\e[Z":   "\e-1\C-i"
-"\e\C-d": possible-completions
-"\e\C-l": complete
-
-## Menu complete with Meta-s/S
-#"\es": menu-complete
-#"\eS": menu-complete-backward
-
-# Universal argument
-"\e\C-u": universal-argument
-
-
-# incremental history search, both reverse and forward with Ctrl-r/]
-"\C-r": reverse-search-history
-"\C-]": forward-search-history
-#  often, Ctrl-s (default for forward search) is usually masked by tty's STOP
-#  moreover, things like "\e\C-r" reset the isearch keyword
-#  so, overriding Ctrl-] (default character-search) seems to be the best choice
-
-# better history search with Arrow keys: Up/Down
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-
-
-# character search with Meta-] and Ctrl-Meta-]
-"\e]":    character-search
-"\e\C-]": character-search-backward
-
-# backward/forward words by space with Meta-Shift-B/F
-"\eB": "\C-b\e\C-] \C-f"
-"\eF": "\e] "
-"\e^": delete-horizontal-space
-
-# easier backward/forward path components with Meta-Ctrl-B/F
-"\e\C-b": "\C-b\e\C-]/\C-f"
-"\e\C-f": "\e]/"
-
-
-# Quickly repeat last history item
-"\e\C-m": "\C-p\C-m"
-
-
-# Bash-specific READLINE Tweaks
-# See-Also: http://www.ukuug.org/events/linux2003/papers/bash_tips/
 $if Bash
-
-    # Do history expansion ! when space is pressed
-    "\C-Space": magic-space
-
-    # Insert-Option Macro (enhanced to handle multi-word commands)
-    "\eo": "\C-p\C-a\eF\C-f"
-    "\eO": "\eo\eF\C-f"
-
-    # a better backward/forward words by space with Meta-Shift-B/F
-    "\eviB": vi-bWord
-    "\eviW": vi-fWord
-    "\eviE": vi-eWord
-    "\eB": "\eviB"
-    "\eF": "\C-f\eviE\C-f"
-
-    # backward/forward shell words by Meta-Left/Right
-    "\e\e[D": shell-backward-word
-    "\e\e[C": shell-forward-word
-    #  and a kill too
-    "\eH": shell-backward-kill-word
-    "\eD": shell-kill-word
-
+  Space: magic-space
 $endif
 
-$include ~/.input_local
+set -o vi
 

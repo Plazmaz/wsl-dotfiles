@@ -1,5 +1,6 @@
 [global_config]
   enabled_plugins = TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  suppress_multiple_term_dialog = True
   title_hide_sizetext = True
   title_transmit_bg_color = "#299ff3"
 [keybindings]
@@ -14,7 +15,7 @@
       parent = ""
       position = 8:28
       size = 1920, 900
-      title = dylan@LAPTOP-UQCUF24U: ~
+      title = eddiew
       type = Window
     [[[child1]]]
       order = 0
@@ -68,7 +69,7 @@
       parent = ""
       position = 8:28
       size = 1856, 900
-      title = dylan@LAPTOP-UQCUF24U: ~
+      title = eddiew
       type = Window
     [[[terminal1]]]
       order = 0
@@ -82,6 +83,6 @@
     background_darkness = 0.4
     background_image = /home/dylan/background.png
     background_type = image
-    font = Monospace 8
+    font = Source Code Pro for Powerline 16
     foreground_color = "#ffffff"
     show_titlebar = False

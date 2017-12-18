@@ -1,5 +1,5 @@
 # Change this if you need to change the vcxsrv install location
-set -g XSRV_DIR "/mnt/h/Program Files/VcXsrv"
+set -g XSRV_DIR "/mnt/c/Program Files/VcXsrv"
 
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
