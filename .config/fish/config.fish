@@ -1,2 +1,2 @@
 # For X forwarding to windows
-export DISPLAY=localhost:0.0
+export DISPLAY=:0
