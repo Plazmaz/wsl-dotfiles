@@ -64,15 +64,6 @@ fi
 echo -e "\e[93m>>>\e[0m Checking for updates..."
 git pull
 
-if [[ ! -d ~/wsl-dotfiles ]]; then
-   mkdir ~/wsl-dotfiles
-   cp -a . ~/wsl-dotfiles
-
-else
-   cd ~/wsl-dotfiles
-   echo -e "\e[93m>>>\e[0m Existing installation found. Using that..."
-fi
-
 echo -e "\e[93m>>>\e[0m Updating..."
 git stash
 git pull
