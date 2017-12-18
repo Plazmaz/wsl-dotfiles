@@ -27,6 +27,7 @@ if [[ ! -d fonts ]]; then
     git clone https://github.com/powerline/fonts.git --depth=1
     powershell.exe -Command \&{"$(cat fonts/install.ps1)"}
     ./fonts/install.sh
+    rm -r ./fonts
 fi
 #powershell.exe -executionpolicy bypass -File fonts\\install.ps1
 
