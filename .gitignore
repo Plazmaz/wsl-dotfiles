@@ -1,0 +1,2 @@
+# ignore nvm.fish because we download it on every install
+.config/fish/functions/nvm.fish

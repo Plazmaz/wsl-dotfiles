@@ -21,9 +21,11 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-export NVM_DIR="/home/dylan/.nvm"
+# Load NVM
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-#if [ $(pwd | tail -c 9) == "GitPrime" ]; then
-#eval "$(direnv hook bash)" && direnv allow
-#fi
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# X forwarding to vcxsrv on windows
+export DISPLAY=:0
 
