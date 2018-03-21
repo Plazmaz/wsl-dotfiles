@@ -2,21 +2,23 @@
 echo "Installing dependencies..."
 
 if ! [ -x "$(command -v fish)" ]; then
+    echo -e "\e[93m>>>\e[0m Installing fish shell..."
     sudo add-apt-repository ppa:fish-shell/beta-2
-    sudo apt-get update
-    sudo apt-get install -y fish
+    sudo apt update
+    sudo apt install -y fish
     echo -e "\e[93m>>>\e[0m Installing oh-my-fish if not installed..."
 fi
 
 if [[ ! -d ~/.local/share/omf/ ]]; then
     curl -L "https://get.oh-my.fish" | fish
 fi
+
 echo -e "\e[93m>>>\e[0m Installing themes..."
 fish -c "omf install bobthefish; omf theme bobthefish; exit"
 echo -e "\e[93m>>>\e[0m Switching default shell..."
 chsh -s `which fish`
 
-sudo apt-get install -y git terminator xfce4
+sudo apt install -y git
 
 windir() {
     echo "/mnt/$1" | sed 's/\\/\//g' | sed 's/\b\(.\):/\L\1/g';
@@ -29,19 +31,8 @@ if [[ ! -d fonts ]]; then
     ./fonts/install.sh
     rm -r ./fonts
 fi
-#powershell.exe -executionpolicy bypass -File fonts\\install.ps1
-
-#echo -e "\e[93m>>>\e[0m Installing themes..."
-#fish -c "omf install bobthefish; omf theme bobthefish; exit"
 
 echo -e "\e[93m>>>\e[0m Linking shortcuts..."
-# MY_DOCUMENTS=$(windir `powershell.exe -c "Write-Host ([Environment]::GetFolderPath('MyDocuments')) -NoNewLine"`)
-# DESKTOP=$(windir `powershell.exe -c "Write-Host ([Environment]::GetFolderPath('Desktop')) -NoNewLine"`)
-# ln -sv "$MY_DOCUMENTS" ~
-# ln -sv "$DESKTOP" ~
-#ln -sv "/mnt/c/Users/$USER/Pictures" ~
-#ln -sv "/mnt/c/Users/$USER/Videos" ~
-#ln -sv "/mnt/c/Users/$USER/Music" ~
 ln -sv "$(windir)c" ~
 ln -sv "$(windir)c/Users/Eddie" ~
 ln -sv "$(windir)c/Users/Eddie/Dropbox" ~
@@ -78,6 +69,8 @@ ln -sv "$PWD/.bashrc" ~
 ln -sv "$PWD/.inputrc" ~
 ln -sv "$PWD/git/.gitconfig" ~
 ln -sv "$PWD/.bash_aliases" ~
+
+curl -sSL https://raw.githubusercontent.com/brigand/fast-nvm-fish/master/nvm.fish > $PWD/.config/fish/functions/nvm.fish
 
 cp -rs "$PWD/.config" ~/
 echo -e "\e[93m>>>\e[0m Finished!"

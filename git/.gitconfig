@@ -8,7 +8,7 @@
 	process = git-lfs filter-process
 	required = true
 [core]
-	autocrlf = false
+	autocrlf = input
 	excludesfile = ~/gitignore_global.txt
 
 [credential]

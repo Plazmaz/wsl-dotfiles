@@ -29,16 +29,11 @@ function nvm-fast
 				echo ' -' $file
 			end
 		else
-			set -l new_path
-			for path_segment in $fish_user_paths
-				if not echo "$path_segment" | grep -q "$brigand_nvm_fish_path"
-					set new_path $new_path "$path_segment"
-				end
-			end
+			set -l new_path (string match -ev "$brigand_nvm_fish_path" $PATH)
 			if test $matched_version != 'system'
 				set new_path $brigand_nvm_fish_path/$matched_version/bin $new_path
 			end
-			set -g fish_user_paths $new_path
+			set -gx PATH $new_path
 		end
 	else
 		bash -c "source $NVM_DIR/nvm.sh --no-use; nvm $argv"
