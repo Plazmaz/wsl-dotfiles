@@ -19,7 +19,7 @@ chsh -s `which fish`
 
 sudo apt-get install -y git terminator xfce4
 
-function windir() {
+windir() {
     echo "/mnt/$1" | sed 's/\\/\//g' | sed 's/\b\(.\):/\L\1/g';
 }
 
