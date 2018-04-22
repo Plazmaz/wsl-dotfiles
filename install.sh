@@ -17,7 +17,7 @@ fish -c "omf install bobthefish; omf theme bobthefish; exit"
 echo -e "\e[93m>>>\e[0m Switching default shell..."
 chsh -s `which fish`
 
-sudo apt-get install -y git terminator xfce4
+sudo apt-get install -y git
 
 windir() {
     echo "/mnt/$1" | sed 's/\\/\//g' | sed 's/\b\(.\):/\L\1/g';
@@ -79,7 +79,7 @@ rm -f ~/.profile ~/.bashrc ~/.gitconfig ~/.bash_aliases
 echo -e "\e[93m>>>\e[0m Linking new files..."
 ln -sv "/home/$USER/wsl-dotfiles/.profile" ~
 ln -sv "/home/$USER/wsl-dotfiles/.bashrc" ~
-ln -sv "/home/$USER/wsl-dotfiles/git/.gitconfig" ~
+ln -sv "/home/$USER/wsl-dotfiles/.tmux.conf" ~
 ln -sv "/home/$USER/wsl-dotfiles/.bash_aliases" ~
 
 cp -rs "/home/$USER/wsl-dotfiles/.config" ~/
